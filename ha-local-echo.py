@@ -33,12 +33,13 @@ class HomeAssistant:
 
     def __init__(self, base_url=HA_BASE_URL):
         self.base_url = base_url
-        self.fetch_entities()
 
         self.headers = { 'content-type': 'application/json' }
 
         if HA_API_KEY is not None:
             self.headers['x-ha-access'] = HA_API_KEY
+        
+        self.fetch_entities()
 
     def fetch_entities(self):
         print("Fetching Home Assistant entities...")
